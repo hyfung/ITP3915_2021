@@ -53,9 +53,12 @@ def main():
         if choice != '':
             #Adding orders to current sale
             choice = int(choice)
+            if choice not in (0,1,2,3):
+                print("Invalid coffee number. Please select again!\n")
+                continue
             quantity = int(input("Please input quantity: "))
-            large = input("Large Cup required? +$5.00 (Y / N): ")
-            cold = input("Cold required? +$3.00 (Y / N): ")
+            large = input("Large Cup required? +$5.00 (Y / N): ").upper()
+            cold = input("Cold required? +$3.00 (Y / N): ").upper()
             print("")
 
             current_sales_list.append((choice, quantity, large, cold))
