@@ -62,27 +62,27 @@ def main():
 
         print("Current Order Summary:")
         for item in current_sales_list:
-            if item[2] == 'Y' and item[3] == 'Y':
+            if item[INDEX_LARGE_CUP] == 'Y' and item[INDEX_COLD] == 'Y':
                 #Large and cold
-                print(str(COFFEE_NAME_AND_PRICES[item[0]][0]) + " (Cold,Large): " + str(quantity), end = "")
-            elif item[2] == 'Y':
+                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Cold,Large): " + str(quantity), end = "")
+            elif item[INDEX_LARGE_CUP] == 'Y':
                 #Large
-                print(str(COFFEE_NAME_AND_PRICES[item[0]][0]) + " (Large): " + str(quantity), end = "")
-            elif item[3] == 'Y':
+                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Large): " + str(quantity), end = "")
+            elif item[INDEX_COLD] == 'Y':
                 #Cold
-                print(str(COFFEE_NAME_AND_PRICES[item[0]][0]) + " (Cold): " + str(quantity), end = "")
+                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Cold): " + str(quantity), end = "")
             else:
-                print(str(COFFEE_NAME_AND_PRICES[item[0]][0]) + ": " + str(quantity), end = "")
+                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + ": " + str(quantity), end = "")
 
-            print(": $%d" % compute_sales(item[0], item[1], item[2], item[3], ))
-            total_amt += compute_sales(item[0], item[1], item[2], item[3], )
+            print(": $%d" % compute_sales(item[0], item[1], item[2], item[3]))
+            total_amt += compute_sales(item[0], item[1], item[2], item[3])
 
         print("Total: $%d" % total_amt)
 
         if choice == '':
             #Finishing current order and calculate stats
             for item in current_sales_list:
-                cups_of_coffee_sold[COFFEE_NAME_AND_PRICES[item[0]][INDEX_COFFEE_NAME]] += item[1]
+                cups_of_coffee_sold[COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]] += item[1]
 
             global_sales_list.append(current_sales_list)
             current_sales_list = []
@@ -91,7 +91,7 @@ def main():
             for sale in global_sales_list:
                 sale_total = 0
                 for item in sale:
-                    sale_total += compute_sales(item[0], item[1], item[2], item[3], )
+                    sale_total += compute_sales(item[0], item[1], item[2], item[3])
                 highest_sales_amount = max(sale_total, highest_sales_amount)
                 lowest_sales_amount = min(sale_total, lowest_sales_amount)
                 sale_avg += sale_total
