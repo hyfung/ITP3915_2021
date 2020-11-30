@@ -12,7 +12,7 @@ INDEX_QUANTITY = 1
 INDEX_LARGE_CUP = 2
 INDEX_COLD = 3
 
-def compute_sales(coffee_no: int, quantity: int, large_cup: str, cold: str):
+def compute_sales(coffee_no: int, quantity: int, large_cup: str, cold: str) -> int:
     coffee_price = COFFEE_NAME_AND_PRICES[coffee_no][INDEX_COFFEE_PRICE]
 
     if large_cup == 'Y':
