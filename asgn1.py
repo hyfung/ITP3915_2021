@@ -60,24 +60,25 @@ def main():
 
             current_sales_list.append((choice, quantity, large, cold))
 
-        print("Current Order Summary:")
-        for item in current_sales_list:
-            if item[INDEX_LARGE_CUP] == 'Y' and item[INDEX_COLD] == 'Y':
-                #Large and cold
-                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Cold,Large): " + str(quantity), end = "")
-            elif item[INDEX_LARGE_CUP] == 'Y':
-                #Large
-                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Large): " + str(quantity), end = "")
-            elif item[INDEX_COLD] == 'Y':
-                #Cold
-                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Cold): " + str(quantity), end = "")
-            else:
-                print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + ": " + str(quantity), end = "")
+            print("Current Order Summary:")
+            for item in current_sales_list:
+                if item[INDEX_LARGE_CUP] == 'Y' and item[INDEX_COLD] == 'Y':
+                    #Large and cold
+                    print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Cold,Large) x" + str(quantity), end = "")
+                elif item[INDEX_LARGE_CUP] == 'Y':
+                    #Large
+                    print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Large) x" + str(quantity), end = "")
+                elif item[INDEX_COLD] == 'Y':
+                    #Cold
+                    print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " (Cold) x" + str(quantity), end = "")
+                else:
+                    print(str(COFFEE_NAME_AND_PRICES[item[INDEX_COFFEE_NO]][INDEX_COFFEE_NAME]) + " x" + str(quantity), end = "")
 
-            print(": $%d" % compute_sales(item[0], item[1], item[2], item[3]))
-            total_amt += compute_sales(item[0], item[1], item[2], item[3])
+                print(": $%d" % compute_sales(item[0], item[1], item[2], item[3]))
+                total_amt += compute_sales(item[0], item[1], item[2], item[3])
 
-        print("Total: $%d" % total_amt)
+            print("Total: $%d" % total_amt)
+            print("")
 
         if choice == '':
             #Finishing current order and calculate stats
@@ -98,7 +99,7 @@ def main():
 
             sale_avg /= len(global_sales_list)                
 
-
+            print("")
             print("Statistics of Coffee Shop:")
             print("Total number sales = %d" % len(global_sales_list))
             print("Lowest Sales Amount = $%d" % lowest_sales_amount)
@@ -107,13 +108,13 @@ def main():
 
             print("List of number of cups coffee sold:")
             if cups_of_coffee_sold['Cappuccino'] > 0:
-                print("\tCappuccino: %d" % cups_of_coffee_sold['Cappuccino'])
+                print("  Cappuccino: %d" % cups_of_coffee_sold['Cappuccino'])
             if cups_of_coffee_sold['Espresso'] > 0:
-                print("\tEspresso: %d" % cups_of_coffee_sold['Espresso'])
+                print("  Espresso: %d" % cups_of_coffee_sold['Espresso'])
             if cups_of_coffee_sold['Latte'] > 0:
-                print("\tLatte: %d" % cups_of_coffee_sold['Latte'])
+                print("  Latte: %d" % cups_of_coffee_sold['Latte'])
             if cups_of_coffee_sold['Mocha'] > 0:
-                print("\tMocha: %d" % cups_of_coffee_sold['Mocha'])
+                print("  Mocha: %d" % cups_of_coffee_sold['Mocha'])
             print("")
 
 if __name__ == '__main__':
