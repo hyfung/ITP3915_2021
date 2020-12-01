@@ -5,7 +5,15 @@ Finished this programming assignment just for fun
 //TODO
 
 ## Solution Design Explained
-//TODO
+* Main loop to receive user input
+* Two states: Choice is '' or Choice is valid user input
+  * Adding to current order
+    * Parsing input to (COFFEE, QUANTITY, LARGE, COLD)
+    * Append to current_list
+    * Compute price
+  * finishing current order and print summary
+* Global state to store sales data
+
 
 ## Milestones
 //TODO
