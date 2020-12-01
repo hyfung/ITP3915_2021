@@ -8,7 +8,15 @@ Finished this programming assignment just for fun
 //TODO
 
 ## Running The Program
-`python3 asgn1.py`
+```bash
+python3 asgn1.py
+```
+
+## Unittesting
+Test case wrote against `compute_sales()` only
+```bash
+python3  Test_asgn1.py 
+```
 
 ## Test Cases
 |Input|Descriptions|Expected Output|
