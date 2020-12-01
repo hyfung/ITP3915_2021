@@ -1,6 +1,9 @@
 # ITP3915_2021
 Finished this programming assignment just for fun
 
+## Requirement and Description
+//TODO
+
 ## Solution Design Explained
 //TODO
 
